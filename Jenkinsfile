@@ -1,6 +1,8 @@
 pipeline {
     agent any
     environment {
+        DOCKER_PATH = '/usr/local/bin/docker'   // Ruta a Docker
+        MINIKUBE_PATH = '/usr/local/bin/minikube' // Ruta a Minikube
         DOCKER_IMAGE = "myapp:latest"
     }
     stages {
