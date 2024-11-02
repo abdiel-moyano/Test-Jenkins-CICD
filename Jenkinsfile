@@ -16,7 +16,6 @@ pipeline {
                 script {
                     // Construye la imagen Docker usando la ruta completa
                     sh "/usr/local/bin/docker build -t myapp:latest ."
-                    sh 'kubectl rollout restart deployment myapp-deployment'
                 }
             }
         }
