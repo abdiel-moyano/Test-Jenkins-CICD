@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+    GIT_COMMIT = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+    }
     stages {
         stage('Set up Minikube Docker Environment') {
             steps {
@@ -15,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Construye la imagen Docker usando la ruta completa
-                    sh "/usr/local/bin/docker build -t myapp:latest ."
+                    sh "/usr/local/bin/docker build -t myapp:${GIT_COMMIT} ."
                 }
             }
         }
