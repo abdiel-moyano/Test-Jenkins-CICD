@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: myapp:latest  # Usa la imagen local creada en Minikube
+        image: myapp:${GIT_COMMIT}  # Usa la imagen local creada en Minikube
         imagePullPolicy: Never  # No intenta extraer la imagen de un registro
         ports:
         - containerPort: 5001
